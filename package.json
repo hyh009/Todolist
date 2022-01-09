@@ -1,4 +1,4 @@
-{
+{ "home":"https://github.com/hyh009.github.io/Todo-List.git",
   "name": "todolistreact",
   "version": "0.1.0",
   "private": true,
@@ -18,13 +18,15 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-	"tauri": "tauri",
-	"dev": "npm run tauri dev",
-	"bundle": "tauri build"
+    "tauri": "tauri",
+    "dev": "npm run tauri dev",
+    "bundle": "tauri build"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
