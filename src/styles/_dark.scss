@@ -1,0 +1,258 @@
+// color
+.AppDark {
+  height: 100%;
+  background-color: #212421;
+  .header {
+    background: rgb(42, 63, 164);
+    background: linear-gradient(
+      90deg,
+      rgba(42, 63, 164, 1) 9%,
+      rgba(64, 16, 16, 1) 74%
+    );
+
+    .title {
+      color: lightgray;
+      text-shadow: 1px 1px 2px lightgray;
+    }
+    .time {
+      color: lightgray;
+    }
+    .modeContainer {
+      &::after {
+        background-color: #40088f;
+        left: 5px;
+      }
+    }
+  }
+  .main {
+    //Form
+    overflow: auto;
+
+    .todoForm {
+      .iconContainer {
+        .icon {
+          background-color: #2b2e2b;
+          box-shadow: 1px 1px 1px 1px rgba(104, 102, 102, 0.3);
+          .small {
+            color: white;
+          }
+        }
+        .status {
+          flex-basis: 80px;
+          background-color: #eee;
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+
+      .inputContainer {
+        background-color: #2b2e2b;
+        ::-webkit-calendar-picker-indicator {
+          filter: invert(0.8);
+        }
+
+        .InputTodo {
+          color: lightgray;
+        }
+
+        .category {
+          color: lightgray;
+        }
+        .date {
+          color: lightgray;
+        }
+        .addTodo {
+          background-color: #2b2e2b;
+
+          svg {
+            path {
+              color: rgb(152, 94, 255);
+            }
+          }
+        }
+      }
+      .errorContainer {
+        .error {
+          background-color: #bdb0fd;
+          color: #332150;
+        }
+      }
+      .thinContainer {
+        // filter
+        .filterContainer {
+          .filter {
+            background-color: #2b2e2b;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            color: lightgray;
+          }
+          .Button {
+            background-color: #2b2e2b;
+            color: lightgray;
+          }
+        }
+      }
+    }
+    // hr
+    .line {
+      border-bottom: 10px solid #923cb5;
+      border-width: 10px 0 0 0;
+      border-style: solid;
+      border-image: linear-gradient(
+          90deg,
+          #ee696b,
+          #a594f9,
+          #923cb5,
+          #523a78,
+          #4e0b57
+        )
+        1;
+
+      color: #a39acf;
+    }
+    // backgroundImg
+
+    .background {
+      background-color: #2b2e2b;
+      .text {
+        color: lightgray;
+      }
+    }
+    // todolist
+    .todoContainer {
+      .todolist {
+        .todo {
+          background-color: #343934;
+          color: lightgray;
+
+          .completed {
+            opacity: 0.7;
+            color: gray;
+          }
+          .buttonContainer {
+            .completeBtn {
+              svg {
+                color: lightseagreen;
+              }
+            }
+            button.removeBtn {
+              .svg {
+                color: lightpink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .scrollToTop {
+    .toTopButton {
+      svg {
+        path {
+          color: #985eff;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .AppDark {
+    .main {
+      .background {
+        padding: 20px;
+        margin-top: 10%;
+        background-color: transparent;
+        .text {
+          font-size: 24px;
+        }
+      }
+      .todoForm {
+        .inputContainer {
+          background-color: #212421;
+          .InputTodo {
+            background-color: #2b2e2b;
+          }
+          .category {
+            background-color: #2b2e2b;
+          }
+          .addTodo {
+            background: linear-gradient(150deg, #ad1deb 0%, #6e72fc 100%);
+            svg {
+              path {
+                color: lightgray;
+              }
+            }
+          }
+        }
+      }
+      .todoContainer {
+        .todolist {
+          .todo {
+            ::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 0px;
+              height: 0px;
+              border-bottom: 50px solid rgba(128, 128, 128, 0.096);
+              border-right: 50px solid transparent;
+              box-shadow: 0px 1px 2px 2px #212421, 1px 0px 2px 2px #212421;
+            }
+            ::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 0px;
+              height: 0px;
+              border-top: 50px solid #212421;
+              border-left: 50px solid transparent;
+            }
+
+            .todoItem {
+              .dateItem {
+                color: rgb(230, 221, 238);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .AppDark {
+    .main {
+      .background {
+        padding: 0px;
+
+        flex-direction: column;
+        gap: 30px;
+        .text {
+          font-size: 20px;
+        }
+      }
+
+      .todoForm {
+        .iconContainer {
+          .icon {
+            svg {
+              background-color: transparent;
+              path {
+                color: #c270e2;
+              }
+            }
+          }
+          .status {
+            .small {
+              color: #eee;
+            }
+          }
+        }
+      }
+    }
+  }
+}

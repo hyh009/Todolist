@@ -1,0 +1,1002 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-calendar-picker-indicator {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Noto Sans TC", sans-serif;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+* ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+* ::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.App {
+  width: 100%;
+  gap: 10px;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.App .header {
+  padding: 20px;
+  background: #22c1c3;
+  width: 60%;
+  background: linear-gradient(50deg, #22c1c3 0%, #fdbb2d 100%);
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  justify-items: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.App .header .title {
+  letter-spacing: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px #246486;
+  font-family: Cursive;
+}
+
+.App .header .time {
+  color: #246486;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 5px;
+  font-family: Cursive;
+}
+
+.App .header .modeContainer {
+  justify-self: flex-end;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  background-color: gray;
+  border-radius: 20px;
+  position: relative;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.App .header .modeContainer::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  z-index: 10;
+  width: 30px;
+  height: 22px;
+  background-color: coral;
+  border-radius: 20px;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.App .main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.App .main .todoForm {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .main .todoForm .iconContainer {
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  display: none;
+  gap: 15px;
+  padding: 5px;
+}
+
+.App .main .todoForm .iconContainer .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 90px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 10px;
+  padding: 5px 10px;
+  gap: 10px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.App .main .todoForm .iconContainer .icon .iconGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.App .main .todoForm .iconContainer .icon .iconGrid svg {
+  justify-self: flex-end;
+}
+
+.App .main .todoForm .iconContainer .icon .small {
+  color: #545454;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.App .main .todoForm .iconContainer .status {
+  -ms-flex-preferred-size: 80px;
+      flex-basis: 80px;
+  background-color: #eee;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.App .main .todoForm .largeIcon {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.App .main .todoForm .inputContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 2fr 3fr 1fr;
+      grid-template-columns: 5fr 2fr 3fr 1fr;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  background-color: white;
+}
+
+.App .main .todoForm .inputContainer .InputTodo {
+  padding: 5px;
+  border: none;
+  font-size: 18px;
+  color: #545454;
+  letter-spacing: 1px;
+  background-color: inherit;
+  width: 100%;
+}
+
+.App .main .todoForm .inputContainer .category {
+  border: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: #545454;
+  font-size: 18px;
+  background-color: inherit;
+  width: 100%;
+}
+
+.App .main .todoForm .inputContainer .date {
+  text-align: center;
+  color: #545454;
+  padding: 10px;
+  width: 100%;
+}
+
+.App .main .todoForm .inputContainer .addTodo {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+.App .main .todoForm .errorContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.App .main .todoForm .errorContainer .error {
+  background-color: #fcced6;
+  padding: 5px 10px;
+  color: red;
+  letter-spacing: 1px;
+}
+
+.App .main .todoForm .thinContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+}
+
+.App .main .todoForm .thinContainer .filterContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.App .main .todoForm .thinContainer .filterContainer .filter {
+  background-color: white;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  color: #545454;
+  font-size: 18px;
+  width: 100%;
+}
+
+.App .main .todoForm .thinContainer .filterContainer .Button {
+  background-color: white;
+  display: inline-block;
+}
+
+.App .main .line {
+  border-bottom: 10px solid #246486;
+  border-width: 10px 0 0 0;
+  border-style: solid;
+  -o-border-image: linear-gradient(90deg, #69d2e7, #a7dbd8, #e0e4cc, #f38630, #fa6900) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(#69d2e7), color-stop(#a7dbd8), color-stop(#e0e4cc), color-stop(#f38630), to(#fa6900)) 1;
+     border-image: linear-gradient(90deg, #69d2e7, #a7dbd8, #e0e4cc, #f38630, #fa6900) 1;
+  margin: 20px 5px;
+  text-align: center;
+  letter-spacing: 5px;
+  font-family: Cursive;
+  color: teal;
+  font-weight: bold;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.App .main .background {
+  margin-top: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60vh;
+  background-color: #eee;
+  padding: 10px;
+  gap: 20px;
+}
+
+.App .main .background .img {
+  width: 100%;
+}
+
+.App .main .background .text {
+  font-size: 28px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  margin-bottom: 15%;
+  font-family: Cursive;
+}
+
+.App .main .todoContainer {
+  width: 100%;
+}
+
+.App .main .todoContainer .todolist {
+  padding: 0;
+  list-style-type: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+.App .main .todoContainer .todolist .todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.App .main .todoContainer .todolist .todo .completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.App .main .todoContainer .todolist .todo .todoItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 8;
+      -ms-flex: 8;
+          flex: 8;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 5px;
+}
+
+.App .main .todoContainer .todolist .todo .todoItem .textItem {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5px;
+}
+
+.App .main .todoContainer .todolist .todo .todoItem .textItem svg {
+  margin-right: 15px;
+}
+
+.App .main .todoContainer .todolist .todo .todoItem .dateItem {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.App .main .todoContainer .todolist .todo .buttonContainer button {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.App .main .todoContainer .todolist .todo .buttonContainer button .completeBtn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.App .main .todoContainer .todolist .todo .buttonContainer button .removeBtn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.App .scrollToTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 90vh;
+  right: 20px;
+}
+
+.App .scrollToTop .toTopButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  * ::-webkit-scrollbar {
+    width: 10px;
+  }
+  .App .header {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 100%;
+    padding: 30px;
+    gap: 20px;
+  }
+  .App .header .title {
+    text-align: left;
+    font-size: 44px;
+  }
+  .App .header .time {
+    font-size: 30px;
+  }
+  .App .header .modeContainer {
+    margin-bottom: -25px;
+  }
+  .App .main {
+    width: 100%;
+  }
+  .App .main .background {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+    margin-top: 10%;
+    background-color: transparent;
+  }
+  .App .main .background .text {
+    font-size: 24px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    text-align: center;
+  }
+  .App .main .background .img {
+    width: 50%;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .App .main .todoForm .inputContainer {
+    gap: 20px;
+    background-color: white;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    width: 90%;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .App .main .todoForm .inputContainer .InputTodo {
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+  }
+  .App .main .todoForm .inputContainer .category {
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 7px;
+    text-align: center;
+    font-size: 24px;
+  }
+  .App .main .todoForm .inputContainer .addTodo {
+    background: linear-gradient(150deg, #f73d1c 0%, #fdbb2d 100%);
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 0;
+  }
+  .App .main .todoForm .inputContainer .addTodo svg path {
+    color: white;
+  }
+  .App .main .todoForm .errorContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 80%;
+    gap: 5px;
+  }
+  .App .main .todoForm .thinContainer {
+    gap: 20px;
+    width: 90%;
+  }
+  .App .main .todoForm .thinContainer .filterContainer {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .App .main .todoForm .thinContainer .filterContainer .filter {
+    width: 100%;
+    padding: 10px;
+    font-size: 24px;
+    min-width: 250px;
+  }
+  .App .main .todoContainer .todolist {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    grid-auto-rows: 1fr;
+    gap: 20px;
+    padding: 5px;
+  }
+  .App .main .todoContainer .todolist .todo {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 350px;
+    height: 100%;
+    padding: 20px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: relative;
+    border-radius: 0px;
+  }
+  .App .main .todoContainer .todolist .todo ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-bottom: 50px solid #eee;
+    border-right: 50px solid transparent;
+    -webkit-box-shadow: 0px 1px 3px 3px white, 1px 0px 3px 3px white;
+            box-shadow: 0px 1px 3px 3px white, 1px 0px 3px 3px white;
+  }
+  .App .main .todoContainer .todolist .todo ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid white;
+    border-left: 50px solid transparent;
+  }
+  .App .main .todoContainer .todolist .todo .todoItem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-flex: initial;
+        -ms-flex: initial;
+            flex: initial;
+    gap: 10px;
+  }
+  .App .main .todoContainer .todolist .todo .todoItem .textItem {
+    width: 80%;
+    font-size: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 5px;
+    word-break: break-all;
+    letter-spacing: 2px;
+    margin-left: 0px;
+  }
+  .App .main .todoContainer .todolist .todo .todoItem .textItem svg {
+    margin-right: 0px;
+  }
+  .App .main .todoContainer .todolist .todo .todoItem .dateItem {
+    color: gray;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  .App .main .todoContainer .todolist .buttonContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .App .main .todoForm .thinContainer .filterContainer .filter {
+    min-width: 100px;
+  }
+  .App .main .todoContainer .todolist {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .App .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    text-align: left;
+    gap: 10px;
+    padding: 20px;
+  }
+  .App .header .modeContainer {
+    margin: 0;
+  }
+  .App .header .title {
+    font-size: 28px;
+  }
+  .App .header .time {
+    font-size: 14px;
+  }
+  .App .main .background {
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 30px;
+  }
+  .App .main .background .text {
+    font-size: 20px;
+  }
+  .App .main .line {
+    height: 10px;
+  }
+  .App .main .todoForm {
+    gap: 10px;
+  }
+  .App .main .todoForm .iconContainer {
+    display: -ms-grid;
+    display: grid;
+  }
+  .App .main .todoForm .iconContainer .status .small {
+    color: white;
+    font-weight: normal;
+  }
+  .App .main .todoForm .hide {
+    display: none;
+  }
+  .App .main .todoForm .show {
+    display: -ms-grid;
+    display: grid;
+  }
+  .App .main .todoForm .inputContainer {
+    display: none;
+  }
+  .App .main .todoForm .inputContainer .InputTodo {
+    font-size: 20px;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    color: #545454;
+  }
+  .App .main .todoForm .inputContainer .category {
+    font-size: 20px;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .App .main .todoForm .show {
+    display: -ms-grid;
+    display: grid;
+  }
+  .App .main .todoForm .thinContainer {
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  .App .main .todoForm .thinContainer .filterContainer {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .App .main .todoForm .thinContainer .filterContainer .filter {
+    width: 100%;
+    font-size: 16px;
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .App .main .todoForm .thinContainer .large {
+    display: none;
+  }
+  .App .main .todoContainer {
+    margin-top: 20px;
+  }
+  .App .main .todoContainer .todolist {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.AppDark {
+  height: 100%;
+  background-color: #212421;
+}
+
+.AppDark .header {
+  background: #2a3fa4;
+  background: -webkit-gradient(linear, left top, right top, color-stop(9%, #2a3fa4), color-stop(74%, #401010));
+  background: linear-gradient(90deg, #2a3fa4 9%, #401010 74%);
+}
+
+.AppDark .header .title {
+  color: lightgray;
+  text-shadow: 1px 1px 2px lightgray;
+}
+
+.AppDark .header .time {
+  color: lightgray;
+}
+
+.AppDark .header .modeContainer::after {
+  background-color: #40088f;
+  left: 5px;
+}
+
+.AppDark .main {
+  overflow: auto;
+}
+
+.AppDark .main .todoForm .iconContainer .icon {
+  background-color: #2b2e2b;
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(104, 102, 102, 0.3);
+          box-shadow: 1px 1px 1px 1px rgba(104, 102, 102, 0.3);
+}
+
+.AppDark .main .todoForm .iconContainer .icon .small {
+  color: white;
+}
+
+.AppDark .main .todoForm .iconContainer .status {
+  -ms-flex-preferred-size: 80px;
+      flex-basis: 80px;
+  background-color: #eee;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.AppDark .main .todoForm .inputContainer {
+  background-color: #2b2e2b;
+}
+
+.AppDark .main .todoForm .inputContainer ::-webkit-calendar-picker-indicator {
+  -webkit-filter: invert(0.8);
+          filter: invert(0.8);
+}
+
+.AppDark .main .todoForm .inputContainer .InputTodo {
+  color: lightgray;
+}
+
+.AppDark .main .todoForm .inputContainer .category {
+  color: lightgray;
+}
+
+.AppDark .main .todoForm .inputContainer .date {
+  color: lightgray;
+}
+
+.AppDark .main .todoForm .inputContainer .addTodo {
+  background-color: #2b2e2b;
+}
+
+.AppDark .main .todoForm .inputContainer .addTodo svg path {
+  color: #985eff;
+}
+
+.AppDark .main .todoForm .errorContainer .error {
+  background-color: #bdb0fd;
+  color: #332150;
+}
+
+.AppDark .main .todoForm .thinContainer .filterContainer .filter {
+  background-color: #2b2e2b;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  color: lightgray;
+}
+
+.AppDark .main .todoForm .thinContainer .filterContainer .Button {
+  background-color: #2b2e2b;
+  color: lightgray;
+}
+
+.AppDark .main .line {
+  border-bottom: 10px solid #923cb5;
+  border-width: 10px 0 0 0;
+  border-style: solid;
+  -o-border-image: linear-gradient(90deg, #ee696b, #a594f9, #923cb5, #523a78, #4e0b57) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(#ee696b), color-stop(#a594f9), color-stop(#923cb5), color-stop(#523a78), to(#4e0b57)) 1;
+     border-image: linear-gradient(90deg, #ee696b, #a594f9, #923cb5, #523a78, #4e0b57) 1;
+  color: #a39acf;
+}
+
+.AppDark .main .background {
+  background-color: #2b2e2b;
+}
+
+.AppDark .main .background .text {
+  color: lightgray;
+}
+
+.AppDark .main .todoContainer .todolist .todo {
+  background-color: #343934;
+  color: lightgray;
+}
+
+.AppDark .main .todoContainer .todolist .todo .completed {
+  opacity: 0.7;
+  color: gray;
+}
+
+.AppDark .main .todoContainer .todolist .todo .buttonContainer .completeBtn svg {
+  color: lightseagreen;
+}
+
+.AppDark .main .todoContainer .todolist .todo .buttonContainer button.removeBtn .svg {
+  color: lightpink;
+}
+
+.AppDark .scrollToTop .toTopButton svg path {
+  color: #985eff;
+}
+
+@media only screen and (max-width: 1024px) {
+  .AppDark .main .background {
+    padding: 20px;
+    margin-top: 10%;
+    background-color: transparent;
+  }
+  .AppDark .main .background .text {
+    font-size: 24px;
+  }
+  .AppDark .main .todoForm .inputContainer {
+    background-color: #212421;
+  }
+  .AppDark .main .todoForm .inputContainer .InputTodo {
+    background-color: #2b2e2b;
+  }
+  .AppDark .main .todoForm .inputContainer .category {
+    background-color: #2b2e2b;
+  }
+  .AppDark .main .todoForm .inputContainer .addTodo {
+    background: linear-gradient(150deg, #ad1deb 0%, #6e72fc 100%);
+  }
+  .AppDark .main .todoForm .inputContainer .addTodo svg path {
+    color: lightgray;
+  }
+  .AppDark .main .todoContainer .todolist .todo ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-bottom: 50px solid rgba(128, 128, 128, 0.096);
+    border-right: 50px solid transparent;
+    -webkit-box-shadow: 0px 1px 2px 2px #212421, 1px 0px 2px 2px #212421;
+            box-shadow: 0px 1px 2px 2px #212421, 1px 0px 2px 2px #212421;
+  }
+  .AppDark .main .todoContainer .todolist .todo ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid #212421;
+    border-left: 50px solid transparent;
+  }
+  .AppDark .main .todoContainer .todolist .todo .todoItem .dateItem {
+    color: #e6ddee;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .AppDark .main .background {
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 30px;
+  }
+  .AppDark .main .background .text {
+    font-size: 20px;
+  }
+  .AppDark .main .todoForm .iconContainer .icon svg {
+    background-color: transparent;
+  }
+  .AppDark .main .todoForm .iconContainer .icon svg path {
+    color: #c270e2;
+  }
+  .AppDark .main .todoForm .iconContainer .status .small {
+    color: #eee;
+  }
+}
+/*# sourceMappingURL=App.css.map */
