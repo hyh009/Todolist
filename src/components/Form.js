@@ -60,8 +60,7 @@ const Form = ({ setTodos, todos, setFilters, isDarkMode }) => {
 
   const handleRemove = (e) => {
     e.preventDefault();
-    // window.confirm("確定刪除所有清單嗎？") && setTodos([]);
-    setTodos([]);
+    window.confirm("確定刪除所有清單嗎？") && setTodos([]);
   };
   const onSubmit = (input) => {
     setTodos([...todos, { ...input, completed: false, id: uuid_v4() }]);
@@ -129,10 +128,15 @@ const Form = ({ setTodos, todos, setFilters, isDarkMode }) => {
           <option value="others">其他</option>
         </select>
         <input
-          type="date"
           name="date"
           className="InputTodo date"
-          {...register("date", { required: "請選擇完成期限" })}
+          placeholder="mm/dd/yyyy"
+          type="text"
+          onFocus={(e) => (e.target.type = "date")}
+          {...register("date", {
+            required: "請選擇完成期限",
+            onBlur: (e) => (e.target.type = "text"),
+          })}
         />
         <button className="addTodo">
           <FontAwesomeIcon
@@ -222,7 +226,7 @@ const Form = ({ setTodos, todos, setFilters, isDarkMode }) => {
                 isDarkMode && catActive[0]
                   ? "white"
                   : isDarkMode
-                  ? "lightgray"
+                  ? "#c270e2"
                   : catActive[0]
                   ? "black"
                   : "gray",
@@ -242,7 +246,14 @@ const Form = ({ setTodos, todos, setFilters, isDarkMode }) => {
             <FontAwesomeIcon
               icon={value.icon}
               style={{
-                color: catActive[index + 1] ? value.color : "gray",
+                color:
+                  isDarkMode && catActive[index + 1]
+                    ? value.colorDark
+                    : isDarkMode
+                    ? "#c270e2"
+                    : catActive[index + 1]
+                    ? value.color
+                    : "gray",
                 fontSize: "30px",
               }}
             />

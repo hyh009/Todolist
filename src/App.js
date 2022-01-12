@@ -68,7 +68,7 @@ function App() {
               src={isDarkMode ? backgroundImgDark : backgroundImg}
               alt=""
             />
-            <span className="text">Opps! 沒有資料...</span>
+            <span className="text">Oops!沒有資料...</span>
           </div>
         )}
         <Todolist

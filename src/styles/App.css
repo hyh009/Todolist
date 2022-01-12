@@ -992,9 +992,6 @@ input[type="number"] {
   .AppDark .main .todoForm .iconContainer .icon svg {
     background-color: transparent;
   }
-  .AppDark .main .todoForm .iconContainer .icon svg path {
-    color: #c270e2;
-  }
   .AppDark .main .todoForm .iconContainer .status .small {
     color: #eee;
   }
